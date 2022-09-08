@@ -1,0 +1,562 @@
+/* Key frames ***/
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+:root {
+    --primary-ltx-color: whitesmoke;
+    --secondary-ltx-color: #939393;
+    --third-lbg-color: #2748ac;
+    --fourth-lbg-color: black;
+    --main-margin-padding: 2em;
+}
+
+/* General Styling */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.7;
+    font-family: system-ui;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+input[type="text"] {
+    border: 0;
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--secondary-ltx-color);
+    background-color: rgba(0, 0, 0, 0.22);
+    color: var(--primary-ltx-color);
+    font-size: 1.2rem;
+}
+
+input[type="text"]:focus {
+    border-bottom: 1px solid var(--primary-ltx-color);
+    outline: none;
+}
+
+/***** Navigation Bar Styling ***********/
+section.mobile-nav {
+    opacity: 0;
+    display: none;
+}
+
+a.close {
+    display: none;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background-color: var(--primary-ltx-color);
+    z-index: 7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 0px 10px;
+    font-size: 0.9em;
+}
+
+nav h1 {
+    margin-left: 1.33em;
+}
+
+nav section.links-container a {
+    margin-left: var(--main-margin-padding);
+}
+
+div.action {
+    background-color: var(--fourth-lbg-color);
+    color: var(--primary-ltx-color);
+    padding: 0.6em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+div.action a {
+    color: var(--primary-ltx-color);
+}
+
+a.toggle {
+    display: none;
+}
+
+/* Header styling *************************/
+header.h-index {
+    display: flex;
+    min-height: 600px;
+    color: var(--primary-ltx-color);
+}
+
+header.h-index h1 {
+    font-size: 2rem;
+}
+
+/* Header left div */
+header div.intro {
+    flex: 1 1 0;
+    background-color: var(--third-lbg-color);
+    padding: var(--main-margin-padding);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header div.intro p {
+    font-size: 1.7rem;
+}
+
+/* Header right div ***/
+header div.slider-container {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header div.clicker {
+    flex: 0.33;
+    overflow: auto;
+}
+
+/* Slideshow slider **/
+header section.slider {
+    flex: 1;
+    position: relative;
+}
+
+header section.slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+header section.slider img:nth-child(1) {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Header Clicker */
+header div.clicker {
+    width: 100%;
+    background-color: var(--fourth-lbg-color);
+    position: relative;
+    padding: 1.333em;
+}
+
+header div.button-container {
+    display: inline-block;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+
+header div.clicker button {
+    height: 70px;
+    width: 70px;
+    outline: none;
+    border: none;
+    background-color: var(--primary-ltx-color);
+    border-radius: 100%;
+    margin: 0.8rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+header div.clicker figcaption {
+    color: var(--primary-ltx-color);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* Section bio *****/
+section.bio {
+    height: 400px;
+    padding: var(--main-margin-padding);
+    background-color: var(--primary-ltx-color);
+}
+
+section.bio h2 {
+    font-size: 2rem;
+}
+
+section.bio p {
+    font-size: 1.4rem;
+    max-width: 50%;
+}
+
+/* divided text/img section **/
+section.info {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--fourth-lbg-color);
+    color: var(--primary-ltx-color);
+    min-height: 4000px;
+}
+
+section div.text {
+    padding: var(--main-margin-padding);
+}
+
+section div.text h1 {
+    font-size: 2rem;
+}
+
+section.info p {
+    font-size: 1.5rem;
+}
+
+section.info div {
+    width: 60%;
+}
+
+/* Image Container Styling ****/
+div.img-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+div.img-container img {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 800ms ease-in;
+    will-change: opacity;
+}
+
+div.img-container img:nth-child(1) {
+    z-index: 1;
+}
+
+/**** Footer styling *****/
+footer {
+    background-color: var(--fourth-lbg-color);
+    min-height: 400px;
+    color: var(--primary-ltx-color);
+    display: flex;
+    border-bottom: 1px solid var(--secondary-ltx-color);
+}
+
+footer h4 {
+    color: var(--primary-ltx-color);
+}
+
+footer div.contact-c {
+    color: var(--secondary-ltx-color);
+    font-size: 1.3rem;
+    transition: .3s cubic-bezier(.215, .61, .355, 1);
+}
+
+footer div.contact-c:hover {
+    color: var(--primary-ltx-color);
+}
+
+footer div.footer-left-d {
+    background-color: var(--fourth-lbg-color);
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 1px solid var(--secondary-ltx-color);
+}
+
+footer div.f-links-container ul li {
+    margin-top: 1rem;
+}
+
+footer div.f-links-container li {
+    color: var(--secondary-ltx-color);
+    font-size: 1rem;
+    list-style: none;
+    transition: .3s cubic-bezier(.215, .61, .355, 1);
+}
+
+footer div.f-links-container li:hover {
+    color: var(--primary-ltx-color);
+    cursor: pointer;
+}
+
+footer div.footer-right-d {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: var(--main-margin-padding);
+}
+
+footer div.newsletter-container p {
+    color: var(--secondary-ltx-color);
+}
+
+footer div.newsletter-container h3 {
+    margin-bottom: 20px;
+}
+
+div.copyright {
+    background-color: var(--fourth-lbg-color);
+    padding: var(--main-margin-padding);
+}
+
+div.copyright em {
+    color: var(--secondary-ltx-color);
+}
+
+div.copyright em::before {
+    content: '© ';
+}
+
+/************************************************* Contact Header ***********/
+header.h-contact {
+    min-height: 2000px;
+    background-color: var(--third-lbg-color);
+    position: relative;
+}
+
+header.h-contact h1 {
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--primary-ltx-color);
+    z-index: 3;
+}
+
+header.h-contact img {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 500ms cubic-bezier(.215, .61, .355, 1);
+    will-change: opacity;
+}
+
+header.h-contact img:nth-child(odd) {
+    z-index: 4;
+}
+
+
+header.h-contact img:nth-child(2) {
+    top: 40%;
+    left: 20%;
+}
+
+header.h-contact img:nth-child(3) {
+    top: 10%;
+    right: 30%;
+}
+
+header.h-contact img:nth-child(4) {
+    bottom: 10%;
+    right: 40%;
+}
+
+header.h-contact img:nth-child(5) {
+    bottom: 0;
+    right: 0%;
+}
+
+/**** Main container styling *****/
+main {
+    min-height: 5000px;
+    transition: background-color 1s ease;
+}
+
+main section.timeline-container {
+    position: sticky;
+    top: 4rem;
+    max-width: 90%;
+    min-height: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* timeline article ***/
+main section article.timeline {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    /* The bigger the container width the more you subract to left */
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    transition: background-color 1s ease;
+    align-items: center;
+    will-change: transform;
+    background-color: var(--fourth-lbg-color);
+    text-transform: uppercase;
+}
+
+main section article.timeline img {
+    width: 300px;
+    height: 300px;
+    margin: 4px;
+    border-radius: 10px;
+}
+
+section article.timeline h1 {
+    font-size: 3.3rem;
+    color: var(--primary-ltx-color);
+}
+
+section article.timeline p {
+    font-size: 2rem;
+    color: var(--primary-ltx-color);
+}
+
+/* Last seen, lowest index */
+section article:nth-child(1) {
+    background-color: var(--secondary-ltx-color);
+    left: 0px;
+    z-index: 2;
+}
+
+/* Second seen second highest index*/
+section article:nth-child(2) {
+    z-index: 3;
+}
+
+/* First seen get's the higher index */
+section article:nth-child(3) {
+    z-index: 4;
+}
+
+main article.final {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+main article.final h1 {
+    color: var(--primary-ltx-color);
+    font-size: 3rem;
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main article.final p {
+    color: var(--primary-ltx-color);
+}
+
+/**************************************** Media queries ********/
+@media screen and (max-width: 600px) {
+
+
+    /* Header styling ****/
+    header {
+        flex-direction: column;
+        height: 800px;
+    }
+
+    header div.slider-container {
+        flex: 1;
+        flex-direction: row;
+    }
+
+    header div.clicker {
+        flex: 0.33;
+        overflow: auto;
+    }
+
+    header figcaption {
+        text-align: center;
+    }
+
+    /* Sticky Image Displayer ***/
+    section.info {
+        flex-direction: column;
+    }
+
+    section.info div {
+        width: 100%;
+    }
+
+    /* Bio Styling *****/
+    section.bio {
+        height: 360px;
+    }
+
+    section.bio p {
+        max-width: 100%;
+    }
+
+    /* Company Page article ********/
+    main section article.timeline {
+        flex-direction: column;
+    }
+
+    /*** Footer Styling ***/
+    footer {
+        flex-direction: column;
+        height: 720px;
+    }
+
+    footer div.footer-left-d {
+        border-bottom: 1px solid var(--secondary-ltx-color);
+        border-right: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--main-margin-padding);
+    }
+
+    footer div.f-links-container ul li {
+        margin-top: 1rem;
+    }
+
+    main section article.timeline img {
+        width: 250px;
+        margin: 0px;
+    }
+
+    div.img-container {
+        height: 430px;
+    }
+}
+
+/***************************************** Accesbility Settings ****/

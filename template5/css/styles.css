@@ -1,0 +1,112 @@
+/*@font-face {
+    font-family: Necto Mono;
+    src: url(necto-mono.woff2);
+}*/
+
+body {
+    font-family: system-ui;
+    font-size: 32px;
+    line-height: 1.5;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #111118;
+    color: #ffffff;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 48px;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* This is important */
+section.panner {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Lesson starts here **/
+section.panner div.world {
+    position: absolute;
+    /* Allows us to move the pan */
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    /* fix this to have 600w images */
+    gap: 48px;
+    padding: 48px;
+    will-change: transform;
+}
+
+/* We want to take content outside section tag and make it movable */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 24px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    section div.world {
+        grid-gap: 32px;
+    }
+
+    section img {
+        width: 300px;
+    }
+}
+
+/* Article Styling */
+article {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vw;
+    transition: opacity 500ms ease;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+article.active {
+    background: radial-gradient(transparent, black);
+    opacity: 1;
+    z-index: 3;
+}
+
+section img {
+    transition: transform 300ms ease;
+    filter: grayscale(1);
+}
+
+section img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    filter: grayscale(0);
+}
+
+figure {
+    overflow: hidden;
+}
