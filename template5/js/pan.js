@@ -4,6 +4,10 @@ const imageTag = document.querySelectorAll("img[data-caption]");
 const captionTag = document.querySelector("article.title-container h1");
 const mainTag = document.querySelector('main');
 
+const smallDivTag = document.querySelector("div.header-small-div");
+const toggleTag = document.querySelector("main a.toggle");
+const headerTag = document.querySelector("main header");
+
 let currentX = 0;
 let currentY = 0;
 
@@ -33,12 +37,12 @@ document.addEventListener("mousemove", function (event) {
 
 /* allow animation to continue when mouse stops */
 const animate = function () {
-    currentX += (aimX - currentX) * 0.05;
-    currentY += (aimY - currentY) * 0.05;
+    currentX += (aimX - currentX) * 0.02;
+    currentY += (aimY - currentY) * 0.02;
     panTag.style.transform = `translate3D(${currentX}px, ${currentY}px, ${0})`
+    reduceMotion();
     requestAnimationFrame(animate);
 }
-
 
 const updateSection = function () {
     imageTag.forEach((img, index) => {
@@ -55,5 +59,31 @@ const updateSection = function () {
 
 }
 
+const displayMenu = function () {
+    toggleTag.addEventListener('click', () => {
+        headerTag.classList.toggle('active');
+        smallDivTag.classList.toggle('active');
+        if (headerTag.classList.contains('active')) {
+            toggleTag.textContent = 'Close';
+        } else {
+            toggleTag.textContent = 'Open';
+        }
+    })
+}
+
+/* 
+ Accesiblity Settings
+*/
+const reduceMotion = function () {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
+    if (mq.matches) {
+        panTag.style.transform = `translate3D(${0}px, ${0}px, ${0}px)`;
+    }
+
+}
+
+
 animate();
+displayMenu();
 updateSection();
+reduceMotion();

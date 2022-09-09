@@ -1,11 +1,25 @@
-/*@font-face {
-    font-family: Necto Mono;
-    src: url(necto-mono.woff2);
-}*/
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
 
 body {
     font-family: system-ui;
-    font-size: 32px;
     line-height: 1.5;
     height: 100vh;
     width: 100vw;
@@ -14,15 +28,75 @@ body {
     color: #ffffff;
 }
 
+/* Small Div Styling **/
+div.header-small-div {
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    height: 100px;
+    background-color: transparent;
+    border-bottom: 2px solid grey;
+}
+
+div.header-small-div.active {
+    background-color: black;
+}
+
+div.header-small-div a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Header Styling **/
 header {
     position: fixed;
-    top: 0;
+    background-color: black;
+    top: 10%;
     left: 0;
     width: 100%;
-    z-index: 1;
+    height: 100%;
+    z-index: 0;
+    /* A - zindex will not allow for backwards transition so use 0 instead */
+    opacity: 0;
     display: flex;
     justify-content: space-between;
-    padding: 48px;
+    font-size: 1.3rem;
+    flex-direction: column;
+    transition: opacity 500ms ease;
+}
+
+header.active {
+    z-index: 1;
+    opacity: 1;
+}
+
+header section.links-container {
+    padding: 3rem;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid grey;
+}
+
+header section.links-container a {
+    font-size: 2.4rem;
+    text-decoration: none;
+    border: none;
+    display: block;
+    width: 10%;
+}
+
+header section.nav-footer {
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 200px;
 }
 
 header a {
@@ -41,14 +115,12 @@ section.panner {
 /* Lesson starts here **/
 section.panner div.world {
     position: absolute;
-    /* Allows us to move the pan */
     top: 0;
     left: 0;
     display: grid;
     grid-template-columns: 300px 300px 300px 300px;
-    /* fix this to have 600w images */
-    gap: 48px;
-    padding: 48px;
+    gap: 2rem;
+    padding: 3rem;
     will-change: transform;
 }
 
@@ -83,10 +155,10 @@ article {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 10vw;
-    transition: opacity 500ms ease;
+    font-size: 5vw;
+    transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
     opacity: 0;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -97,7 +169,7 @@ article.active {
 }
 
 section img {
-    transition: transform 300ms ease;
+    transition: transform 500ms ease;
     filter: grayscale(1);
 }
 
@@ -109,4 +181,17 @@ section img:hover {
 
 figure {
     overflow: hidden;
+}
+
+/* Accessiblity Settings */
+@media (prefers-reduced-motion: reduce) {
+    header {}
+
+    section.panner div.world {
+        position: relative;
+        top: 50%;
+        display: flex;
+        gap: 12px;
+        padding: 0px;
+    }
 }
