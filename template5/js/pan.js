@@ -2,11 +2,6 @@ const panTag = document.querySelector("section.panner div.world");
 const articleTag = document.querySelector("article");
 const imageTag = document.querySelectorAll("img[data-caption]");
 const captionTag = document.querySelector("article.title-container h1");
-const mainTag = document.querySelector('main');
-
-const smallDivTag = document.querySelector("div.header-small-div");
-const toggleTag = document.querySelector("main a.toggle");
-const headerTag = document.querySelector("main header");
 
 let currentX = 0;
 let currentY = 0;
@@ -56,19 +51,6 @@ const updateSection = function () {
             articleTag.style.transition = 'opacity 300ms ease-out'
         })
     })
-
-}
-
-const displayMenu = function () {
-    toggleTag.addEventListener('click', () => {
-        headerTag.classList.toggle('active');
-        smallDivTag.classList.toggle('active');
-        if (headerTag.classList.contains('active')) {
-            toggleTag.textContent = 'Close';
-        } else {
-            toggleTag.textContent = 'Open';
-        }
-    })
 }
 
 /* 
@@ -82,8 +64,6 @@ const reduceMotion = function () {
 
 }
 
-
 animate();
-displayMenu();
 updateSection();
 reduceMotion();

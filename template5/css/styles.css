@@ -1,34 +1,20 @@
-@keyframes fadein {
-    0% {
-        opacity: 0;
-    }
+@import url('https://rsms.me/inter/inter.css');
 
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeout {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: system-ui;
+    font-family: 'Inter', sans-serif;
     line-height: 1.5;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-color: #111118;
-    color: #ffffff;
 }
 
-/* Small Div Styling **/
+/********** Header Small Div Styling ******************************/
 div.header-small-div {
     z-index: 3;
     position: fixed;
@@ -37,14 +23,22 @@ div.header-small-div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 2rem;
+    font-size: 1.4rem;
     height: 100px;
-    background-color: transparent;
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+div.header-small-div h3 {
+    color: white;
+}
+
+#p-h3 {
+    color: #333;
 }
 
 div.header-small-div.active {
-    background-color: black;
+    background-color: #111118;
+    color: white;
 }
 
 div.header-small-div a {
@@ -52,43 +46,46 @@ div.header-small-div a {
     text-decoration: none;
 }
 
-/* Header Styling **/
+/*********** Header Styling *************/
 header {
     position: fixed;
-    background-color: black;
-    top: 10%;
+    background-color: #111118;
+    top: 100px;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-    /* A - zindex will not allow for backwards transition so use 0 instead */
+    z-index: 1;
+    /* A (-) zindex will not allow for backwards opacity transition so use n >= 1 instead */
     opacity: 0;
-    display: flex;
-    justify-content: space-between;
     font-size: 1.3rem;
-    flex-direction: column;
     transition: opacity 500ms ease;
+    pointer-events: none;
 }
 
 header.active {
-    z-index: 1;
+    pointer-events: all;
     opacity: 1;
+    z-index: 2;
 }
 
 header section.links-container {
     padding: 3rem;
-    min-height: 440px;
+    min-height: 460px;
     display: flex;
     flex-direction: column;
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 header section.links-container a {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     text-decoration: none;
-    border: none;
-    display: block;
+    color: white;
     width: 10%;
+    transition: color 500ms ease;
+}
+
+a.link:hover {
+    color: grey;
 }
 
 header section.nav-footer {
@@ -96,36 +93,172 @@ header section.nav-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 200px;
+    color: whitesmoke;
+    font-size: 1rem;
 }
 
-header a {
-    color: #ffffff;
-    text-decoration: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-/* This is important */
+/************************** Panner Styling *************/
 section.panner {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
 }
 
-/* Lesson starts here **/
 section.panner div.world {
     position: absolute;
     top: 0;
     left: 0;
     display: grid;
-    grid-template-columns: 300px 300px 300px 300px;
-    gap: 2rem;
+    grid-template-columns: 400px 400px 400px 400px;
+    gap: 3rem;
     padding: 3rem;
     will-change: transform;
+    background-color: #111118;
 }
 
-/* We want to take content outside section tag and make it movable */
+/* Article Styling */
+article.title-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+    transition: all 300ms ease-in;
+    opacity: 0;
+    z-index: 0;
+    color: #ffffff;
+    pointer-events: none;
+    font-weight: semi-bold;
+    background: radial-gradient(transparent, transparent);
+}
 
+article.title-container.active {
+    background: radial-gradient(transparent, #111118);
+    opacity: 1;
+    z-index: 3;
+}
+
+section img {
+    transition: transform 500ms ease;
+}
+
+section img:hover {
+    cursor: pointer;
+}
+
+figure {
+    overflow: hidden;
+}
+
+/********************************************** Projects.html ***********/
+div.header-small-div-2 {
+    color: #333;
+    border-bottom: 1px solid grey;
+}
+
+/* Under UL container ****/
+section.under-ul-container {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+section.under-ul-container.open {
+    opacity: 1;
+}
+
+#p-toggle {
+    color: #333;
+}
+
+div.grid-view-container {
+    padding: 3rem;
+    height: 200px;
+}
+
+h3.grid-view-h3:hover {
+    cursor: pointer;
+}
+
+h3.grid-view-h3 {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
+    font-size: 1rem;
+}
+
+/* Transform this with J.S. */
+section.image-list-container {
+    position: relative;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    transition: transform 600ms ease;
+    z-index: 0;
+}
+
+ul.image-ul {
+    width: 30%;
+    padding: 3rem;
+}
+
+section.image-list-container.open {
+    transform: translateY(100%);
+}
+
+ul.image-ul li img {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(55%, -40%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 400ms ease-in, visibility 400ms ease-in;
+    width: 30vw;
+    height: 60vh;
+    object-fit: cover;
+    will-change: opacity;
+}
+
+ul.image-ul li:nth-child(even) img {
+    top: 40%;
+    left: 30%;
+    transform: translate(30%, -20%);
+}
+
+ul.image-ul li:hover>img {
+    opacity: 1;
+    visibility: visible;
+}
+
+ul.image-ul>li {
+    color: black;
+    font-size: 1.77rem;
+    margin-top: 0.6rem;
+    text-align: left;
+}
+
+ul.image-ul>li:hover {
+    cursor: pointer;
+    color: #333;
+}
+
+/********* Mobile Settings ********************************/
 @media (max-width: 600px) {
     body {
         font-size: 24px;
@@ -145,48 +278,8 @@ section.panner div.world {
     }
 }
 
-/* Article Styling */
-article {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5vw;
-    transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
-    opacity: 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
-article.active {
-    background: radial-gradient(transparent, black);
-    opacity: 1;
-    z-index: 3;
-}
-
-section img {
-    transition: transform 500ms ease;
-    filter: grayscale(1);
-}
-
-section img:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-    filter: grayscale(0);
-}
-
-figure {
-    overflow: hidden;
-}
-
-/* Accessiblity Settings */
+/****************************************** Accessiblity Settings */
 @media (prefers-reduced-motion: reduce) {
-    header {}
-
     section.panner div.world {
         position: relative;
         top: 50%;
