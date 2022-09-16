@@ -5,6 +5,8 @@ const headerTag = document.querySelector("main header");
 const imageListTag = document.querySelector("section.image-list-container")
 const underUl = document.querySelector("section.under-ul-container");
 const gridviewTag = document.querySelectorAll("h3.grid-view-h3");
+const imagesTag = document.querySelectorAll("img.pic");
+
 
 const displayMenu = function () {
     toggleTag.addEventListener('click', () => {
@@ -31,4 +33,4 @@ gridviewTag.forEach(btn => {
     })
 })
 
-displayMenu(); 
+displayMenu();
