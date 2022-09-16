@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll(".menu-link");
     const navImg = document.querySelector(".nav-div-img");
 
+
+
     const changeImage = function () {
         navLinks.forEach((link) => {
             link.addEventListener("mousemove", (ev) => {
