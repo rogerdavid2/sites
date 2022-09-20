@@ -17,7 +17,7 @@ which is represented as `n^3` and takes the middle view port value as a paramete
 ![](mkdwn/n3.jpeg)
 **Figure 1: n^3 function which has a rate of change of 3n^2 which is generally a quadratic equation**
 
-## Menu Behavior
+### Menu Behavior
 ![](mkdwn/menu.jpeg)
 
 On hovering links:
@@ -30,3 +30,5 @@ On opening the menu:
 a `setTimeOut` is launched. The reason I used a setTimeOut function is because I can access 
 the optional parameter and create a top to bottom staggering opacity animation. When the menu is closed
 each active class is removed with a timer as well to create a "stagger in" and "stagger out" effect for each link.
+
+## Contact.html
