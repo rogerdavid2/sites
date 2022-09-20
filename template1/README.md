@@ -34,7 +34,8 @@ each link's index and create a top to bottom staggering opacity animation. Intri
 a bottom to top staggering animation can be achieved by using `column-reverse` with `flexbox` on the links container.
 
 On closing the menu:
-each active class is removed with a timer as well to create a "stagger out" effect for each link. 
+each active class is removed with a timer as well to create a "stagger out" effect for each link. It is imperative to 
+remove the active class so the staggering effect can work when the menu is opened and closed.
 
 ## Contact.html
 This page has the on scroll image opacity effect. 
@@ -67,5 +68,5 @@ document.addEventListener("scroll", function () {
 ```
 This is the calculation done to detect if each image is in view. By default
 the images just layer and stick ontop of eachother if no fade-in effect is used! Which creates
-another interesting effect without JavaScript. Another option to detect if images are inview is to use
+another interesting effect without JavaScript. Another option to detect if images are in view is to use
 `InteresectionObserver`
