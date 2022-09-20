@@ -34,3 +34,37 @@ the optional parameter and create a top to bottom staggering opacity animation. 
 each active class is removed with a timer as well to create a "stagger in" and "stagger out" effect for each link.
 
 ## Contact.html
+This page has the on scroll image opacity effect. 
+The main div has a minumum height of 4000px so there is a greater scrolling range, and 60% width for pleasant margin. 
+Each image, and not the container itself have position `sticky` applied. That is because in the JavaScript, I use
+`getBoundingClientRect()` to detect if the image is in view, and since there are multiple images each has to get revealed and stick.
+and not just the container!
+
+```
+const images = document.querySelectorAll("div.img-container img");
+
+const fadeIn = function () {
+    images.forEach((image) => {
+        const imageTop = image.getBoundingClientRect().top;
+        const imageBottom = image.getBoundingClientRect().bottom;
+
+        if (imageTop === 0 && imageBottom > 0) {
+            image.classList.add("active");
+        } else {
+            image.classList.remove("active");
+        }
+    });
+};
+
+document.addEventListener("scroll", function () {
+    fadeIn();
+});
+```
+This is the calculation done to detect if each image is in view. By default
+the images just layer and stick ontop of eachother if no fade-in effect is used! Which creates
+another interesting effect without JavaScript.
+
+
+
+
+
