@@ -23,22 +23,24 @@ which is represented as `n^3` and takes the middle view port value as a paramete
 ![](mkdwn/menu.jpeg)
 
 On hovering links:
-The image container is positioned relative, and the children images
-are positioned absolute. This allows for stacking to occur so when
-each link is hovered the respective background image is revealed with JavaScript and ZIndex order.
-In future projects, I achieve this same effect with CSS only. 
+The image container is positioned `relative`, and the children images
+are positioned `absolute`. This allows for stacking to occur so when
+each link is hovered the respective background image is revealed with JavaScript and `ZIndex` order.
+In future projects, I achieve this same effect with CSS only!
 
 On opening the menu: 
-a `setTimeOut` is launched. The reason I used a setTimeOut function is because I can access 
-the optional parameter and create a top to bottom staggering opacity animation. When the menu is closed
-each active class is removed with a timer as well to create a "stagger in" and "stagger out" effect for each link.
+a `setTimeOut()` is launched. I use a setTimeOut function because I can access 
+each links index parameter, and create a top to bottom staggering opacity animation. Intriguing enough
+a bottom to pop staggering animation can be achieved by using `column-reverse` with `flexbox` 
+
+On closing the menu:
+each active class is removed with a timer as well to create a "stagger out" effect for each link. 
 
 ## Contact.html
 This page has the on scroll image opacity effect. 
 The main div has a minumum height of 4000px so there is a greater scrolling range, and 60% width for pleasant margin. 
-Each image, and not the container itself have position `sticky` applied. That is because in the JavaScript, I use
-`getBoundingClientRect()` to detect if the image is in view, and since there are multiple images each has to get revealed and stick.
-and not just the container!
+Each image, and not the container itself have position `sticky` applied. That is because there is only one container, but 
+multiple images so with JavaScript I use `getBoundingClientRect()` to detect if each image is in view - if so remove opacity, vice-versa.
 
 ```
 const images = document.querySelectorAll("div.img-container img");
