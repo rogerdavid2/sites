@@ -66,6 +66,6 @@ document.addEventListener("scroll", function () {
     fadeIn();
 });
 ```
-By default the images just layer and stick ontop of eachother if no JavaScript is used! Which creates
-a stacking sticky effect. Another option to detect if images are in view is to use
+By default the images just layer and stick ontop of eachother which creates
+a stacking sticky effect if JavaScript is not desired. Another option to detect if images are in view is to use
 `InteresectionObserver`
