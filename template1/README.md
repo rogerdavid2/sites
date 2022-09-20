@@ -13,8 +13,10 @@ The middle of the view port is useful because with that value we can obtain the 
 of each image and calculate the y-direction transformation.
 
 To further smoothen the vertical transformation I created a cubic function
-which is represented as `n^3` and takes the middle view port value as a parameter. 
+which is represented as `n^3` and takes the middle view port value as a parameter.
+
 ![](mkdwn/n3.jpeg)
+
 **Figure 1: the rate of change of n^3 is a quadratic equation**
 
 ### Menu Behavior
