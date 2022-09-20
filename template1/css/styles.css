@@ -240,11 +240,11 @@ section.info div {
 
 /* Image container styling **/
 div.img-container img {
-    height: 80vh;
+    height: 100vh;
     position: sticky;
     top: 0;
     opacity: 0;
-    transition: 0.3s opacity ease;
+    transition: 400ms opacity ease;
     will-change: opacity;
 }
 
@@ -254,10 +254,10 @@ div.img-container img.active {
 
 div.img-container h2 {
     position: sticky;
-    top: 0;
+    /* border: 2px solid greenyellow; */
+    bottom: -50%;
     background-color: var(--lightmode-sticky-bg);
     color: var(--lightmode-sticky-text);
-    bottom: -100px;
 }
 
 /****************************************************** About.html ****/
@@ -290,7 +290,7 @@ div.slider-container {
 }
 
 div.slider-container:hover {
-    cursor: pointer;
+    cursor: alias;
 }
 
 div.slider-container img {
@@ -313,13 +313,11 @@ div.slider-container img:hover {
 section.single-image-container {
     height: 500px;
     margin-top: 8rem;
-    /* background-color: firebrick; */
+    background-color: firebrick;
     background-image: url(../assets/img/plant4-2x.jpg);
     background-position: center center;
-    background-repeat: no-repeat;
     width: 100%;
 }
-
 
 section.description-container {
     display: flex;
