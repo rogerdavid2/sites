@@ -30,17 +30,20 @@ In future projects, I achieve this same effect with CSS only!
 
 On opening the menu: 
 a `setTimeOut()` is launched. I use a setTimeOut function because I can access 
-each links index parameter, and create a top to bottom staggering opacity animation. Intriguing enough
-a bottom to pop staggering animation can be achieved by using `column-reverse` with `flexbox` 
+each link's index and create a top to bottom staggering opacity animation. Intriguing enough,
+a bottom to top staggering animation can be achieved by using `column-reverse` with `flexbox` on the links container.
 
 On closing the menu:
 each active class is removed with a timer as well to create a "stagger out" effect for each link. 
 
 ## Contact.html
 This page has the on scroll image opacity effect. 
-The main div has a minumum height of 4000px so there is a greater scrolling range, and 60% width for pleasant margin. 
-Each image, and not the container itself have position `sticky` applied. That is because there is only one container, but 
+The main div has a minumum height of `4000px` so there is a greater scrolling range. If there isn't enough scroll space 
+then each image does not have the potential to stick! So, `4000px` height is an arbitrary choice.
+
+Moreover, each image, and not the container itself have position `sticky` applied. That is because there is only one container, but 
 multiple images so with JavaScript I use `getBoundingClientRect()` to detect if each image is in view - if so remove opacity, vice-versa.
+The effect must be applied to each image for this to work.
 
 ```
 const images = document.querySelectorAll("div.img-container img");
@@ -65,8 +68,3 @@ document.addEventListener("scroll", function () {
 This is the calculation done to detect if each image is in view. By default
 the images just layer and stick ontop of eachother if no fade-in effect is used! Which creates
 another interesting effect without JavaScript.
-
-
-
-
-
