@@ -16,3 +16,6 @@ To further smoothen the vertical transformation I created a cubic function
 which is represented as `n^3` and takes the middle view port value as a parameter. 
 ![](mkdwn/n3.jpeg)
 **Figure 1: n^3 function which has a rate of change of 3n^2 which is a n^2 quadratic equation**
+
+### MENU
+![](mkdwn/menu.jpeg)
