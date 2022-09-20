@@ -67,4 +67,5 @@ document.addEventListener("scroll", function () {
 ```
 This is the calculation done to detect if each image is in view. By default
 the images just layer and stick ontop of eachother if no fade-in effect is used! Which creates
-another interesting effect without JavaScript.
+another interesting effect without JavaScript. Another option to detect if images are inview is to use
+`InteresectionObserver`
