@@ -69,3 +69,8 @@ document.addEventListener("scroll", function () {
 By default the images just layer and stick ontop of eachother which creates
 a stacking sticky effect if JavaScript is not desired. Another option to detect if images are in view is to use
 `InteresectionObserver`
+
+## About.html
+![](mkdwn/about.jpeg)
+
+On the about page I loop around an array of images to display an image carousel
